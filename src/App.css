@@ -36,3 +36,14 @@ main {
   border: 1px solid #D5D4D8;
   text-indent: 5px;
 }
+
+.div-image{
+  display: flex;
+  justify-content: center;
+}
+
+.meme-image{
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 100%;
+}
