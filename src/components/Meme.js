@@ -14,11 +14,13 @@ export default function Meme() {
     const [allMemeImages, setAllMemeImages]=React.useState(memesData)
 
     function getMemeImage() {
-        const memesArray = memesData.data.memes
+        const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
-        setMemeImage(memesArray[randomNumber].url)
-        // const url = memesArray[randomNumber].url
-
+        const url=memesArray[randomNumber].url
+        setMeme(prevMeme=>({
+            ...prevMeme,
+            randomImage:url
+        }))
     }
 
     return (
@@ -29,7 +31,7 @@ export default function Meme() {
                 <button className="form-button" onClick={getMemeImage}>Get a new meme image</button>
             </div>
             <div className="div-image">
-                <img src={memeImage} className="meme-image" />
+                <img src={meme.randomImage} className="meme-image" />
             </div>
         </main>
     )
